@@ -9,6 +9,22 @@
 - 全球部分国家边界 shp 数据下载 [OpenStreetMapDataExtracts](http://download.geofabrik.de/)
 - HIGHCHARTS 提供的地图数据集 [Highmaps 地图数据集](https://img.hcharts.cn/mapdata/)
 
+## 格式互转
+
+### geojson 与 shp 互转
+
+#### 在线网站
+
+- [Convert GeoJSON to SHP Online](https://mygeodata.cloud/converter/geojson-to-shp)
+- [mapshaper](https://mapshaper.org/)
+
+#### 其他方式
+
+- gdal 提供的 ogr2ogr 命令 利用 postgis 扩展控件包含的 gdal 插件
+- QGIS 直接导出各类格式
+- [java-gdal 实现 shp 转 geojson](https://www.jianshu.com/p/6d9a65839f7f)
+- [geotools 中 shp 和 geojson 格式的相互转换](https://blog.csdn.net/gisshixisheng/article/details/74090011)
+
 ## 相关 cesium api
 
 涉及的 cesium 相关 api [GeoJsonDataSource](http://cesium.xin/cesium/cn/Documentation1.62/GeoJsonDataSource.html?classFilter=GeoJsonDataSource)
