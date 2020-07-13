@@ -13,6 +13,8 @@
 
 ### geojson 与 shp 互转
 
+- 参考 [GEOJSON与shp互转](https://www.jianshu.com/p/db99447b1f9d)
+
 #### 在线网站
 
 - [Convert GeoJSON to SHP Online](https://mygeodata.cloud/converter/geojson-to-shp)
