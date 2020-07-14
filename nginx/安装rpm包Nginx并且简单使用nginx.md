@@ -1,6 +1,6 @@
 # 安装地一个 rpm 包 Nginx
 
-> [linux 命令在线查询网站](https://www.linuxcool.com/)
+> [nginx 中文文档](https://www.nginx.cn/doc/) > [linux 命令在线查询网站](https://www.linuxcool.com/)
 
 ## 安装 epel 源
 
