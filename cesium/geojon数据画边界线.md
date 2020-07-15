@@ -5,15 +5,16 @@
 ## 搜集的相关资料
 
 - [AshKyd](https://github.com/AshKyd)的全球各国 geojson 边界数据 | [github 地址](https://github.com/AshKyd/geojson-regions.git) [网址](https://geojson-maps.ash.ms/)
-- 支持鼠标拾取位置生成 json 数据文件 [geojson-map](http://geojson.io/#map=5/43.723/120.981)
-- 全球部分国家边界 shp 数据下载 [OpenStreetMapDataExtracts](http://download.geofabrik.de/)
-- HIGHCHARTS 提供的地图数据集 [Highmaps 地图数据集](https://img.hcharts.cn/mapdata/)
+- 支持鼠标拾取位置生成 json 数据文件 |[geojson-map](http://geojson.io/#map=5/43.723/120.981)
+- 全球部分国家边界 shp 数据下载 |[OpenStreetMapDataExtracts](http://download.geofabrik.de/)
+- HIGHCHARTS 提供的地图数据集 |[Highmaps 地图数据集](https://img.hcharts.cn/mapdata/)
+- 阿里云全国各省市边界线数据 |[DATAV.GeoAtlas](http://datav.aliyun.com/tools/atlas)
 
 ## 格式互转
 
 ### geojson 与 shp 互转
 
-- 参考 [GEOJSON与shp互转](https://www.jianshu.com/p/db99447b1f9d)
+- 参考 [GEOJSON 与 shp 互转](https://www.jianshu.com/p/db99447b1f9d)
 
 #### 在线网站
 
