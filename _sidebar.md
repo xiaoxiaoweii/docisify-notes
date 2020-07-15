@@ -15,3 +15,4 @@
 - [安装 rpm 包 Nginx 并且简单使用 nginx](./nginx/安装rpm包Nginx并且简单使用nginx.md)
 - [Nginx 进程结构](./nginx/Nginx进程结构.md)
 - [利用linux信号量管理nginx](./nginx/利用linux信号量管理nginx.md)
+- [Nginx配置文件重载的原理真相](./nginx/Nginx配置文件重载的原理真相.md)
