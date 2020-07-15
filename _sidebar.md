@@ -18,3 +18,4 @@
 - [Nginx配置文件重载的原理真相](./nginx/Nginx配置文件重载的原理真相.md)
 - [Nginx热部署完整步骤演示](./nginx/Nginx热部署完整步骤演示.md)
 - [Nginx的模块化管理机制](./nginx/Nginx的模块化管理机制.md)
+- [Nginx编译安装的配置参数](./nginx/Nginx编译安装的配置参数.md)
