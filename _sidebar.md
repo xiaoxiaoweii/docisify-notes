@@ -17,3 +17,4 @@
 - [利用linux信号量管理nginx](./nginx/利用linux信号量管理nginx.md)
 - [Nginx配置文件重载的原理真相](./nginx/Nginx配置文件重载的原理真相.md)
 - [Nginx热部署完整步骤演示](./nginx/Nginx热部署完整步骤演示.md)
+- [Nginx的模块化管理机制](./nginx/Nginx的模块化管理机制.md)

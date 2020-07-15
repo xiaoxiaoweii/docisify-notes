@@ -135,8 +135,14 @@ cp nginx nginx.bak #将nginx文件备份到nginx.bak
 
 ## 回滚旧版本
 
-如果发现旧版本Nginx有问题可以回滚旧版本
+如果发现旧版本 Nginx 有问题可以回滚旧版本
 
 ```shell
   kill -s SIGHUP 3079 # 旧主进程 读取旧配置文件 拉起旧的子进程
+```
+
+退出新版本的主进程
+
+```shell
+  kill -s SIGQUIT # 新版本主进程
 ```
