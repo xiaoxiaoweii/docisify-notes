@@ -8,14 +8,16 @@
 ## Cesium
 
 - [geojon 数据画边界线](./cesium/geojon数据画边界线.md)
+- [Cesium本地运行](./cesium/Cesium本地运行.md)
 
 ## Nginx
 
 - [Nginx 概述](./nginx/Nginx概述.md)
 - [安装 rpm 包 Nginx 并且简单使用 nginx](./nginx/安装rpm包Nginx并且简单使用nginx.md)
 - [Nginx 进程结构](./nginx/Nginx进程结构.md)
-- [利用linux信号量管理nginx](./nginx/利用linux信号量管理nginx.md)
-- [Nginx配置文件重载的原理真相](./nginx/Nginx配置文件重载的原理真相.md)
-- [Nginx热部署完整步骤演示](./nginx/Nginx热部署完整步骤演示.md)
-- [Nginx的模块化管理机制](./nginx/Nginx的模块化管理机制.md)
-- [Nginx编译安装的配置参数](./nginx/Nginx编译安装的配置参数.md)
+- [利用 linux 信号量管理 nginx](./nginx/利用linux信号量管理nginx.md)
+- [Nginx 配置文件重载的原理真相](./nginx/Nginx配置文件重载的原理真相.md)
+- [Nginx 热部署完整步骤演示](./nginx/Nginx热部署完整步骤演示.md)
+- [Nginx 的模块化管理机制](./nginx/Nginx的模块化管理机制.md)
+- [Nginx 编译安装的配置参数](./nginx/Nginx编译安装的配置参数.md)
+- [定制编译安装第一个 Nginx](./nginx/定制编译安装第一个Nginx.md)
