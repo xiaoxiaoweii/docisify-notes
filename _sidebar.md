@@ -9,6 +9,7 @@
 
 - [geojon 数据画边界线](./cesium/geojon数据画边界线.md)
 - [Cesium本地运行](./cesium/Cesium本地运行.md)
+- [Cesium Widget](./cesium/Cesium%20Widget.md)
 
 ## Nginx
 
