@@ -23,7 +23,7 @@ B 站 | [Cesium 快速上手](https://www.bilibili.com/video/BV1B7411G7HP?t=902)
 - screenSpaceEventHandler 对 Canvas 对象上各种鼠标的交互事件的封装 | 集合 传给应用场景触发其他事件
 - scene 承载整个三维场景中的对象
 
-> scene和时间参数没有任何关系 没有时间概念
+> scene 和时间参数没有任何关系 没有时间概念
 
 ## scene
 
@@ -34,6 +34,15 @@ B 站 | [Cesium 快速上手](https://www.bilibili.com/video/BV1B7411G7HP?t=902)
 
 ### 图元类对应一个三维渲染对象
 
-- 图元是Cesium用来绘制三维对象的一个独立的结构。图元类有：Globe、Model、Primitive、BillboardCollection、ViewportQuad等。
+- 图元是 Cesium 用来绘制三维对象的一个独立的结构。图元类有：Globe、Model、Primitive、BillboardCollection、ViewportQuad 等。
 
 > 一个图元对应多个同一批绘制的对象
+
+## Cesium widget 结构
+
+1. Cesium通过CesiumWidget类管理窗口div；
+2. 通过Scene来管理所有的三维场景对象；
+3. 三维场景对象的构建则是通过图元来创建；
+
+
+![widget](./img/widget.png)

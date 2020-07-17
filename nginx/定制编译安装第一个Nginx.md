@@ -279,3 +279,363 @@ tar xf zlib-1.2.11.tar.gz
 >   --with-debug                       enable debug logging
 >
 > ```
+
+## 编译 Nginx
+
+根据安装内容检查编译环境
+
+```shell
+  sudo ./configure --prefix=/opt/nginx --conf-path=/opt/nginx/conf/nginx.conf --user=nginx --group=nginx --pid-path=/opt/nginx/pid/nginx.pid --error-log-path=/opt/nginx/logs/error.log --with-pcre=/usr/sbin/pcre-8.44 --with-zlib=/usr/sbin/zlib-1.2.11 --with-http_ssl_module --with-http_image_filter_module --with-http_stub_status_module --http-log-path=/opt/nginx/logs/access.log
+```
+
+> 根据提示结果 缺啥装啥
+
+提示
+
+```shell
+the HTTP image filter module requires the GD library.
+You can either do not enable the module or install the libraries.
+```
+
+安装所需依赖
+
+```shell
+sudo install gd gd-devel -y
+```
+
+再次检查
+
+> 输出
+
+```shell
+onfiguration summary
+  + using PCRE library: /usr/sbin/pcre-8.44
+  + using system OpenSSL library
+  + using zlib library: /usr/sbin/zlib-1.2.11
+
+  nginx path prefix: "/opt/nginx"
+  nginx binary file: "/opt/nginx/sbin/nginx"
+  nginx modules path: "/opt/nginx/modules"
+  nginx configuration prefix: "/opt/nginx/conf"
+  nginx configuration file: "/opt/nginx/conf/nginx.conf"
+  nginx pid file: "/opt/nginx/pid/nginx.pid"
+  nginx error log file: "/opt/nginx/logs/error.log"
+  nginx http access log file: "/opt/nginx/logs/access.log"
+  nginx http client request body temporary files: "client_body_temp"
+  nginx http proxy temporary files: "proxy_temp"
+  nginx http fastcgi temporary files: "fastcgi_temp"
+  nginx http uwsgi temporary files: "uwsgi_temp"
+  nginx http scgi temporary files: "scgi_temp"
+```
+
+进行编译
+
+```shell
+make # sudo make
+```
+
+查看当前文件目录
+
+```shell
+ls -rlt
+```
+
+> 输出
+
+```shell
+-rw-r--r--. 1 1001 1001     49 5月  26 23:00 README
+-rw-r--r--. 1 1001 1001   1397 5月  26 23:00 LICENSE
+-rwxr-xr-x. 1 1001 1001   2502 5月  26 23:00 configure
+-rw-r--r--. 1 1001 1001 462738 5月  26 23:00 CHANGES.ru
+-rw-r--r--. 1 1001 1001 303180 5月  26 23:00 CHANGES
+drwxr-xr-x. 2 1001 1001     21 7月  15 23:49 man
+drwxr-xr-x. 2 1001 1001     40 7月  15 23:49 html
+drwxr-xr-x. 9 1001 1001     91 7月  15 23:49 src
+drwxr-xr-x. 4 1001 1001     72 7月  15 23:49 contrib
+drwxr-xr-x. 2 1001 1001    168 7月  15 23:49 conf
+drwxr-xr-x. 6 1001 1001   4096 7月  15 23:49 auto
+-rw-r--r--. 1 root root    349 7月  17 22:33 Makefile
+drwxr-xr-x. 3 root root    174 7月  17 22:34 objs
+```
+
+````shell
+vi Makefile #查看Makegfile内容 :q退出
+
+> 输出
+```shell
+default:        build
+
+clean:
+        rm -rf Makefile objs
+
+build:
+        $(MAKE) -f objs/Makefile
+
+install:
+        $(MAKE) -f objs/Makefile install
+
+modules:
+        $(MAKE) -f objs/Makefile modules
+
+upgrade:
+        /opt/nginx/sbin/nginx -t
+
+        kill -USR2 `cat /opt/nginx/pid/nginx.pid`
+        sleep 1
+        test -f /opt/nginx/pid/nginx.pid.oldbin
+
+        kill -QUIT `cat /opt/nginx/pid/nginx.pid.oldbin`
+````
+
+安装
+
+```shell
+make install # sudo make install
+```
+
+安装完成
+
+进入安装目录 查看安装目录文件列表
+
+```shell
+cd /opt/nginx/
+ll
+```
+
+> 输出
+
+```shell
+drwxr-xr-x. 2 root root 4096 7月  17 22:43 conf
+drwxr-xr-x. 2 root root   40 7月  17 22:43 html
+drwxr-xr-x. 2 root root    6 7月  17 22:43 logs
+drwxr-xr-x. 2 root root    6 7月  17 22:43 pid
+drwxr-xr-x. 2 root root   19 7月  17 22:43 sbin
+```
+
+启动 nginx
+
+```shell
+sudo /opt/nginx/sbin/nginx # /opt/nginx/sbin/nginx
+```
+
+> 报错
+
+```shell
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
+nginx: [emerg] still could not bind()
+```
+
+查看配置文件
+
+```shell
+cd conf/
+vim nginx.conf
+```
+
+> 输出
+
+```shell
+#user  nobody; # 使用nginx用户
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+#
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
+
+```
+
+[vim 文本编辑器](https://blog.csdn.net/u013008795/article/details/88757927)
+
+修改 nginx.conf 中
+
+> user nginx; # 使用 nginx 用户
+
+尝试启动 nginx 发现还是不行 原因是没有 nginx 用户 要手动创建 nginx 用户
+添加 nginx 用户
+重新启动 发现成功 nginx
+
+```shell
+ps -ef | grep nginx
+```
+
+> 输出
+
+```shell
+oot       43838   43080  0 23:30 ?        00:00:00 nginx: master process /opt/nginx/sbin/nginx
+nginx      43839   43838  0 23:30 ?        00:00:00 nginx: worker process
+xiaoxia+   43852   43759  0 23:31 pts/0    00:00:00 grep --color=auto nginx
+```
+
+关闭 centos8.0 防火墙
+
+```shell
+systemctl stop firewalld
+ystemctl disable firewalld
+```
+
+```shell
+getenforce
+```
+
+> 输出
+
+```shell
+Enforcing
+```
+
+永久关闭 SELinux 修改 selinux 内容
+
+```shell
+vim /etc/sysconfig/selinux
+```
+
+```shell
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+SELINUX=enforcing # 改为disabled
+# SELINUXTYPE= can take one of these three values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+
+```
+
+查看编译时的配置参数
+
+```shell
+/opt/nginx/sbin/nginx -V
+```
+
+> 输出
+
+```shell
+nginx version: nginx/1.19.0
+built by gcc 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC)
+built with OpenSSL 1.1.1c FIPS  28 May 2019
+TLS SNI support enabled
+configure arguments: --prefix=/opt/nginx --conf-path=/opt/nginx/conf/nginx.conf --user=nginx --group=nginx --pid-path=/opt/nginx/pid/nginx.pid --error-log-path=/opt/nginx/logs/error.log --with-pcre=/usr/sbin/pcre-8.44 --with-zlib=/usr/sbin/zlib-1.2.11 --with-http_ssl_module --with-http_image_filter_module --with-http_stub_status_module --http-log-path=/opt/nginx/logs/access.log
+```
+
+检查配置文件语法是否正确
+
+```shell
+/opt/nginx/sbin/nginx -t
+```
