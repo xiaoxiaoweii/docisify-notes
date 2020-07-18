@@ -22,3 +22,4 @@
 - [Nginx 的模块化管理机制](./nginx/Nginx的模块化管理机制.md)
 - [Nginx 编译安装的配置参数](./nginx/Nginx编译安装的配置参数.md)
 - [定制编译安装第一个 Nginx](./nginx/定制编译安装第一个Nginx.md)
+- [Nginx配置文件结构](./nginx/Nginx配置文件结构.md)
