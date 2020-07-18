@@ -23,3 +23,4 @@
 - [Nginx 编译安装的配置参数](./nginx/Nginx编译安装的配置参数.md)
 - [定制编译安装第一个 Nginx](./nginx/定制编译安装第一个Nginx.md)
 - [Nginx配置文件结构](./nginx/Nginx配置文件结构.md)
+- [虚拟主机的分类](./nginx/虚拟主机的分类.md)
