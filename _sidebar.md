@@ -1,3 +1,7 @@
+## Javascript
+
+- [Promise-区别实例对象与函数对象](./javascript/Promise-区别实例对象与函数对象.md)
+
 ## Typerscript
 
 - [TypeScript 使用 Parcel 打包 TS 代码](./typerscript/TypeScript使用Parcel打包TS代码.md)
@@ -8,7 +12,7 @@
 ## Cesium
 
 - [geojon 数据画边界线](./cesium/geojon数据画边界线.md)
-- [Cesium本地运行](./cesium/Cesium本地运行.md)
+- [Cesium 本地运行](./cesium/Cesium本地运行.md)
 - [Cesium Widget](./cesium/Cesium%20Widget.md)
 
 ## Nginx
@@ -22,5 +26,5 @@
 - [Nginx 的模块化管理机制](./nginx/Nginx的模块化管理机制.md)
 - [Nginx 编译安装的配置参数](./nginx/Nginx编译安装的配置参数.md)
 - [定制编译安装第一个 Nginx](./nginx/定制编译安装第一个Nginx.md)
-- [Nginx配置文件结构](./nginx/Nginx配置文件结构.md)
+- [Nginx 配置文件结构](./nginx/Nginx配置文件结构.md)
 - [虚拟主机的分类](./nginx/虚拟主机的分类.md)
