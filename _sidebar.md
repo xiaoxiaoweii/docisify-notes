@@ -3,7 +3,7 @@
 - [Promise-区别实例对象与函数对象](./javascript/Promise-区别实例对象与函数对象.md)
 - [Promise-两种回调函数](./javascript/Promise-两种回调函数.md)
 - [Promise-JS 的 error 处理](./javascript/Promise-JS的error处理.md)
-
+- [Promise-Promise理解和使用](./javascript/Promise-Promise的理解和使用.md)
 ## Typerscript
 
 - [TypeScript 使用 Parcel 打包 TS 代码](./typerscript/TypeScript使用Parcel打包TS代码.md)
