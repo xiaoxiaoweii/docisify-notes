@@ -31,3 +31,7 @@
 - [Nginx 配置文件结构](./nginx/Nginx配置文件结构.md)
 - [虚拟主机的分类](./nginx/虚拟主机的分类.md)
 - [基于端口的虚拟主机的实现](./nginx/基于端口的虚拟主机的实现.md)
+
+## python
+
+- [pip使用镜像源](python/pip使用国内镜像源.md)
