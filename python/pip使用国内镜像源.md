@@ -26,3 +26,10 @@ windows 下，在 user 目录中创建一个 pip 目录，如：C:\Users\xx\pip�
 > [global]
 > index-url = https://pypi.tuna.tsinghua.edu.cn/simple >[install]
 > trusted-host=mirrors.aliyun.com
+
+
+## 升级pip
+
+```shell
+python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
